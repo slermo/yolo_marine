@@ -1,0 +1,6 @@
+# Data
+/data/
+*.txt
+*.csv
+*.json
+/src/__pycache__/

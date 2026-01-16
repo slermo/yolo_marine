@@ -19,6 +19,7 @@ numpy = "^1.26"
 pandas = "^2.0"
 matplotlib = "^3.8"
 tqdm = "^4.66"
+albumentations = "^2.0.8"
 
 [tool.poetry.group.dev.dependencies]
 ipython = "^8.18"

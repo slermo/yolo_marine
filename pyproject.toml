@@ -4,13 +4,14 @@ version = "0.1.0"
 description = "YOLO detection for marine organisms"
 authors = ["slermo"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.12"
+python = ">=3.10,<3.13"
 
 # ML
-torch = "*"
-torchvision = "*"
+torch = {version = "*", source = "pytorch-cu128"}
+torchvision = {version = "*", source = "pytorch-cu128"}
 ultralytics = "^8.1.0"
 
 # Utils
@@ -29,3 +30,8 @@ ipykernel = "^7.1.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+priority = "explicit"

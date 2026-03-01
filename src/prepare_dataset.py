@@ -25,7 +25,7 @@ import cv2
 # Configuration
 # ---------------------------------------------------------------------------
 
-DATA_DIR = Path("data")
+DATA_DIR = Path("data/brackish-dataset")
 VIDEO_DIR = DATA_DIR / "dataset" / "videos"
 ANN_DIR   = DATA_DIR / "annotations" / "annotations_AAU"
 

@@ -1,6 +1,19 @@
 # Data
 /data/
-*.txt
-*.csv
-*.json
-/src/__pycache__/
+*.pt
+
+# Training runs
+/runs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

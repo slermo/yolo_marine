@@ -1,0 +1,10 @@
+# Base training parameters — shared across all experiments.
+# Kept identical between YOLOv8s and YOLO26s for fair comparison.
+
+epochs: 30
+imgsz: 640
+batch: 32
+patience: 10
+device: 0
+workers: 4
+seed: 42

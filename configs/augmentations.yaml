@@ -1,0 +1,30 @@
+# Augmentation presets for YOLO training.
+# Parameters map directly to ultralytics train() kwargs.
+# Each preset is applied identically to both YOLOv8s and YOLO26s.
+
+weak:
+  fliplr: 0.5
+  hsv_h: 0.014       # hue_shift ≈ 5°
+  hsv_s: 0.1         # sat_shift ≈ 10%
+  hsv_v: 0.1         # val_shift ≈ 10%
+  degrees: 0
+  translate: 0.0
+  scale: 0.0
+
+medium:
+  fliplr: 0.5
+  hsv_h: 0.05        # hue_shift ≈ 18°
+  hsv_s: 0.2         # sat_shift ≈ 20%
+  hsv_v: 0.2         # val_shift ≈ 20%
+  degrees: 10
+  translate: 0.05
+  scale: 0.15
+
+strong:
+  fliplr: 0.5
+  hsv_h: 0.1         # hue_shift ≈ 36°
+  hsv_s: 0.3         # sat_shift ≈ 30%
+  hsv_v: 0.3         # val_shift ≈ 30%
+  degrees: 15
+  translate: 0.1
+  scale: 0.3

@@ -12,7 +12,7 @@ python = ">=3.10,<3.13"
 # ML
 torch = {version = "*", source = "pytorch-cu128"}
 torchvision = {version = "*", source = "pytorch-cu128"}
-ultralytics = "^8.1.0"
+ultralytics = "^8.4.0"
 
 # Utils
 opencv-python = "^4.9.0"
@@ -21,6 +21,7 @@ pandas = "^2.0"
 matplotlib = "^3.8"
 tqdm = "^4.66"
 albumentations = "^2.0.8"
+pyyaml = "^6.0"
 
 [tool.poetry.group.dev.dependencies]
 ipython = "^8.18"

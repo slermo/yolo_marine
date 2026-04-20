@@ -1,0 +1,15 @@
+# Brackish Underwater Dataset (AAU)
+# https://www.kaggle.com/datasets/aalborguniversity/brackish-dataset
+
+path: data/brackish-dataset
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: fish
+  1: small_fish
+  2: crab
+  3: shrimp
+  4: jellyfish
+  5: starfish

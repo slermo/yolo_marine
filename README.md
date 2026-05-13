@@ -9,7 +9,7 @@ Part of a master's thesis studying the effect of augmentation strategies across 
 6 classes: `fish`, `small_fish`, `crab`, `shrimp`, `jellyfish`, `starfish`
 
 | Split | Frames | Objects |
-|-------|--------|---------|
+| ----- | ------ | ------- |
 | Train | 11 739 | 28 518  |
 | Val   | 1 467  | 3 581   |
 | Test  | 1 468  | 3 466   |
@@ -67,6 +67,7 @@ python src/train.py --model yolov8s --aug weak medium strong
 ```
 
 Training parameters (shared, see `configs/train_base.yaml`):
+
 - Epochs: 30, Image size: 640, Batch: 32, Patience: 10, Seed: 42
 
 ### 3. Evaluate
@@ -90,15 +91,15 @@ Outputs saved to `runs/figures/`.
 
 ## Augmentation Presets
 
-| Parameter | Weak   | Medium | Strong |
-|-----------|--------|--------|--------|
-| fliplr    | 0.5    | 0.5    | 0.5    |
-| hsv_h     | 0.014  | 0.05   | 0.1    |
-| hsv_s     | 0.1    | 0.2    | 0.3    |
-| hsv_v     | 0.1    | 0.2    | 0.3    |
-| degrees   | 0      | 10     | 15     |
-| translate | 0.0    | 0.05   | 0.1    |
-| scale     | 0.0    | 0.15   | 0.3    |
+| Parameter | Weak  | Medium | Strong |
+| --------- | ----- | ------ | ------ |
+| fliplr    | 0.5   | 0.5    | 0.5    |
+| hsv_h     | 0.014 | 0.05   | 0.1    |
+| hsv_s     | 0.1   | 0.2    | 0.3    |
+| hsv_v     | 0.1   | 0.2    | 0.3    |
+| degrees   | 0     | 10     | 15     |
+| translate | 0.0   | 0.05   | 0.1    |
+| scale     | 0.0   | 0.15   | 0.3    |
 
 ## Hardware
 

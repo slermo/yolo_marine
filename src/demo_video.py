@@ -95,7 +95,15 @@ def render_scene(model, scene: dict, out_path: Path, conf: float, imgsz: int) ->
 
     start_f = int(float(scene.get("start", 0.0)) * fps)
     n_frames = int(float(scene.get("duration", 5.0)) * fps)
-    cap.set(cv2.CAP_PROP_POS_FRAMES, start_f)
+
+    # cv2.set(POS_FRAMES) silently fails on many AVI codecs; grab sequentially instead.
+    for _ in range(start_f):
+        if not cap.grab():
+            cap.release()
+            raise RuntimeError(
+                f"{video}: ran out of frames seeking to frame {start_f} "
+                f"(start={start_f / fps:.1f}s)"
+            )
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     writer = cv2.VideoWriter(
@@ -111,6 +119,7 @@ def render_scene(model, scene: dict, out_path: Path, conf: float, imgsz: int) ->
 
     title = scene.get("title")
     desc = f"{video.stem} @ {start_f / fps:.1f}s +{n_frames / fps:.1f}s"
+    written = 0
     for i in tqdm(range(n_frames), desc=desc):
         ok, frame = cap.read()
         if not ok:
@@ -125,9 +134,16 @@ def render_scene(model, scene: dict, out_path: Path, conf: float, imgsz: int) ->
         )
         annotate(frame, results[0], model.names, title)
         writer.write(frame)
+        written += 1
 
     cap.release()
     writer.release()
+
+    if written == 0:
+        out_path.unlink(missing_ok=True)
+        raise RuntimeError(
+            f"{video}: 0 frames written for scene starting at {start_f / fps:.1f}s"
+        )
 
 
 def concat_with_ffmpeg(scene_paths: list[Path], output: Path) -> None:

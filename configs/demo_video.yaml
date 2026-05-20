@@ -1,0 +1,40 @@
+# Demo reel config.
+#
+# Запуск (после того, как best.pt лежит в runs/runs/yolov8s/weak*):
+#   python -m src.demo_video --config configs/demo_video.yaml
+#
+# weights:  путь к best.pt. null  взять последний из runs/runs/yolov8s/weak*.
+# conf:     порог уверенности (опускай до 0.2 если на сложных кадрах теряет цель).
+# imgsz:    разрешение инференса. Совпадает с тем, на чём учились (640).
+# output:   итоговый mp4. Рядом будет создана scenes/ с пер-сценовыми клипами.
+#
+# scenes:   список фрагментов. Поля:
+#   video    — путь к .avi из data/brackish-dataset/dataset/videos/...
+#   start    — секунды от начала видео
+#   duration — длина фрагмента в секундах
+#   title    — опционально, рисуется поверх кадра (имя сцены)
+#
+# Подсказка: имена видео в BrackishMOT длинные, вида
+#   2019-03-21_07-40-40to2019-03-21_07-40-50_1.avi
+# и лежат в подпапках по дням съёмки.
+
+weights: null
+conf: 0.35
+imgsz: 640
+output: runs/demo/demo.mp4
+
+scenes:
+  - video: data/brackish-dataset/dataset/videos/<subdir>/<file>.avi
+    start: 12.0
+    duration: 6.0
+    title: "Стая мелких рыб"
+
+  - video: data/brackish-dataset/dataset/videos/<subdir>/<file>.avi
+    start: 30.0
+    duration: 8.0
+    title: "Краб на дне"
+
+  - video: data/brackish-dataset/dataset/videos/<subdir>/<file>.avi
+    start: 5.0
+    duration: 6.0
+    title: "Медуза в толще"
